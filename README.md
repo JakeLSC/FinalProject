@@ -99,7 +99,20 @@ or:
 
 - I don't think I actually used any modules that we used in class, but I learned a lot about new modules for this project.
 - This reads from both the local csv file and the url which is a csv file.
-- I have exception handling for both times csv files are read, they put an error if the csv file is not functioning properly.
+- I have exception handling for both times csv files are read, they put an error if the csv file is not functioning properly:
+```python
+try:
+        dt = pd.read_csv('dataThon.csv', sep='\t', usecols=fields)
+except:
+        print('\n***CSV FILE ERROR. Take a look at your csv file path.***\n')
+
+try:
+        micdf = pd.read_csv('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=V39QMK0NXHH2RAQE&datatype=csv')
+        amzn = pd.read_csv('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AMZN&apikey=V39QMK0NXHH2RAQE&datatype=csv')
+        tsla = pd.read_csv('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=TSLA&apikey=V39QMK0NXHH2RAQE&datatype=csv')
+except:
+        print('\n***URL ERROR, look at which stock didn\'t load and fix the url.***\n')
+```
 - My project as almost a whole was a new concept for me.
 
 ## Reflection
